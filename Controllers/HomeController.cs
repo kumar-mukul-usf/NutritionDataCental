@@ -35,7 +35,7 @@ namespace NutritionDataCental.Controllers
         [HttpPost]
         public async Task<IActionResult> SearchResult()
         {
-            //ViewBag.FoodName = uobj.FoodName;
+           
             return View();
         }
 
