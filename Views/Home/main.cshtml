@@ -1,0 +1,98 @@
+﻿@{
+    Layout = null;
+}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Home</title>
+</head>
+<body>
+    <div class="topnavleft">
+        <img class="logo-image" src="/img/logo.png" alt="Logo" style="width:10%;height:10%">
+        <img class="title" src="/img/title.png" alt="Title" style="width:20%;height:50%">
+        <a href=@Url.Action("About", "Home" )>About Us</a>
+        <a href=@Url.Action("Stats", "Home" )>Stats</a>
+        <a href=@Url.Action("Search", "Home" )>Search</a>
+        <a href=@Url.Action("main", "Home" )>Home</a>
+    </div>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img class="img-responsive" src="/img/image1.jpg">
+            <div class="text"></div>
+        </div>
+
+        <div class="mySlides fade">
+
+            <img class="img-responsive" src="/img/image2.jpg">
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img class="img-responsive" src="/img/image3.jpg">
+            <div class="text"></div>
+        </div>
+    </div>
+    <br>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    <!--Footer-->
+    <style>
+        footer {
+            position: fixed;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 14%;
+            left: 0;
+            bottom: 0;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+    </style>
+    <footer>
+        <div class="center">
+            <div class="center">
+                <h4 class="white-text"><b><br>Use of this Website</b></h4>
+                <h5 class="grey-text text-lighten-10s"></h5>
+                <p>
+                    <b> Nutrition Data Central helps to analyze, compile, and presents all the food nutrients and components to a new level.</b>
+                    <b> This website provides the food attributes, nutrients of each food, calories of each food item. Click on the link for more details. Thank You!</b>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+</script>
